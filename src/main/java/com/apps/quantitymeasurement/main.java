@@ -1,6 +1,6 @@
 package com.apps.quantitymeasurement;
 
-public class main {
+public class main{
 
     public static boolean demonstrateLengthEquality(Length length1, Length length2) {
         boolean result = length1.equals(length2);
@@ -26,9 +26,25 @@ public class main {
         demonstrateLengthEquality(oneFoot, twelveIn);
     }
 
+    public static void demonstrateYardsEquality() {
+        Length oneYard  = new Length(1.0, Length.LengthUnit.YARDS);
+        Length threeFt  = new Length(3.0, Length.LengthUnit.FEET);
+        Length thirtySixIn = new Length(36.0, Length.LengthUnit.INCHES);
+        demonstrateLengthEquality(oneYard, threeFt);
+        demonstrateLengthEquality(oneYard, thirtySixIn);
+    }
+
+    public static void demonstrateCentimetersEquality() {
+        Length oneCm   = new Length(1.0,      Length.LengthUnit.CENTIMETERS);
+        Length inchEq  = new Length(0.393701, Length.LengthUnit.INCHES);
+        demonstrateLengthEquality(oneCm, inchEq);
+    }
+
     public static void main(String[] args) {
         demonstrateFeetEquality();
         demonstrateInchesEquality();
         demonstrateFeetInchesComparison();
+        demonstrateYardsEquality();
+        demonstrateCentimetersEquality();
     }
 }
